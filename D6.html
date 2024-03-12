@@ -195,14 +195,40 @@
          Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
         */
 
-      const revealFooterLink = function () {};
+      const revealFooterLink = function () {
+        const linkAnch = document.querySelector("footer a");
+        const alertLink = linkAnch.href;
+        alert(alertLink);
+      };
+
+      const footSelect = document.querySelector("footer");
+      footSelect.addEventListener("click", revealFooterLink);
 
       /* ESERCIZIO 11
          Crea una funzione che crei una tabella nell'elemento con id "tableArea".
          La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
       */
 
-      const generateTable = function () {};
+      const generateTable = function () {
+        const tableArea = document.getElementById("tableArea");
+        const table = document.createElement("table");
+        const firstRow = document.createElement("tr");
+        const tableHeadTitles = [
+          "immagine",
+          "nome",
+          "prodotto",
+          "quantità",
+          "prezzo",
+        ];
+        tableHeadTitles.forEach((headTitles) => {
+          const titleCell = document.createElement("th");
+          titleCell.textContent = headTitles;
+          firstRow.appendChild(titleCell);
+        });
+        table.appendChild(firstRow);
+      };
+
+      generateTable();
 
       /* ESERCIZIO 12
          Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
@@ -220,7 +246,15 @@
         Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
       */
 
-      const changeColorWithRandom = function () {};
+      const changeColorWithRandom = function () {
+        const h2Item = document.getElementById("changeMyColor");
+        const randomColor =
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
+        h2Item.style.color = randomColor;
+      };
+
+      const h2Item = document.getElementById("changeMyColor");
+      h2Item.onclick = changeColorWithRandom;
     </script>
   </body>
 </html>
